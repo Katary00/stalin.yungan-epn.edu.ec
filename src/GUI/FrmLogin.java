@@ -10,8 +10,7 @@ import DAC.SYUsuariosDAC;
  * @author StalinYungan
  */
 public class FrmLogin extends javax.swing.JFrame {
-    public static final String CEDULA="STALIN_ANTHONY_YUNGAN_SINCHE";
-    public static final String NOMBRE="1728848274";
+    
 
     SYUsuariosDAC usuariosDAC=new SYUsuariosDAC();
    
@@ -103,10 +102,10 @@ public class FrmLogin extends javax.swing.JFrame {
 
         String syUsername = txtUser.getText();    
         // Obtener la contraseña ingresada por el usuario
-    String contrasena = txtPassword.getText();
+    String syContrasena = txtPassword.getText();
     
     // Encriptar la contraseña ingresada por el usuario
-    String contrasenaEncriptada = EncriptacionDAC.syEncriptarContrasena(contrasena);
+    String contrasenaEncriptada = EncriptacionDAC.syEncriptarContrasena(syContrasena);
     
     // Verificar si el usuario y la contraseña son válidos
     SYUsuarios syUsuario = new SYUsuarios();

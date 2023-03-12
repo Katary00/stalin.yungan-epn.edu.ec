@@ -20,7 +20,7 @@ public class CoordenadasDAC {
         try (Connection conn = conexion.getCn();
              PreparedStatement stmt = conn.prepareStatement("SELECT CAPACIDAD_BELICA, GEOPOSICIONAMIENTO, ARSENAL FROM COORDENADAS");
              ResultSet rs = stmt.executeQuery()) {
-    
+                int sumaCapacidadBelica = 0;
             while (rs.next()) {
                 int capacidadBelica = rs.getInt("CAPACIDAD_BELICA");
                 String geoposicionamiento = rs.getString("GEOPOSICIONAMIENTO");
@@ -29,7 +29,9 @@ public class CoordenadasDAC {
                     Coordenadas coordenada = new Coordenadas(capacidadBelica, geoposicionamiento, arsenal);
                     coordenadas.add(coordenada);
                     geoposiciones.add(geoposicionamiento);
+                    sumaCapacidadBelica += capacidadBelica;
                 }
+                
             }
         } catch (SQLException e) {
             e.printStackTrace();
